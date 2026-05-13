@@ -5,5 +5,5 @@ a = torch.rand(40,20)
 heater.plot(a, theme='heatmap')
 ```
 
-![Example Heatmap](images/example1.pn)
+![Example Heatmap](images/example1.png)
 
