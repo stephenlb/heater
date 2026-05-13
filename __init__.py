@@ -7,7 +7,7 @@ import torch
 ## TODO More Examples and a README.md
 ## TODO Create a package for Pypi ✅
 ## TODO Numpy Support
-## TODO Remove all Deps
+## TODO Remove all Deps 
 ## TODO Native-only Support
 ## TODO Actually use the lib for our origin intent
 ## TODO 
@@ -17,10 +17,7 @@ import torch
 ## TODO Scale down if needed to fit in window
 
 def plot(input: Tensor, theme='heatmap', lightness=4) -> None:
-    a  = input / input.abs().max()
-    #a = torch.nn.functional.normalize(input)
-
-    print(a)
+    a = input / input.abs().max()
     width, height = a.shape
     top = '▄' * (width+2)
     bottom = '▀' * (width+2)
@@ -74,6 +71,15 @@ themes = {
         (239,141,52),
         (249,216,73),
     ],
+    'rainbow' : [
+        (255,0,0),
+        (255,128,0),
+        (255,255,0),
+        (0,255,0),
+        (0,0,255),
+        (0,128,255),
+        (0,255,255),
+    ],
 }
 
 def shade(value: float, theme='heatmap', lightness=4) -> str:
@@ -82,23 +88,10 @@ def shade(value: float, theme='heatmap', lightness=4) -> str:
     p = round(v * (len(rgb) - 1))
     s = rgb[p]
     f = rgb[p]
-
     r = int(s[0] + (f[0] - s[0]) * v)
     g = int(s[1] + (f[1] - s[1]) * v)
     b = int(s[2] + (f[2] - s[2]) * v)
-
-    return f'\033[38;2;{r};{g};{b}m' + charmap[lightness] + '\033[0m'
-
-def Gradshade(value: float, theme='heatmap', lightness=4) -> str:
-    s = (55,27,198)
-    f = (255,255,200)
-
-    v = value.item()
-    r = int(s[0] + (f[0] - s[0]) * v)
-    g = int(s[1] + (f[1] - s[1]) * v)
-    b = int(s[2] + (f[2] - s[2]) * v)
-
-    return f'\033[38;2;{r};{g};{b}m' + charmap[lightness] + '\033[0m'
+    return f'\033[38;2;{r};{g};{b}m█\033[0m'
 
 
 ##   Code    Result  Description
