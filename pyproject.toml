@@ -9,7 +9,6 @@ authors = [
   {name = "Stephen Blum", email = "blum.stephen@gmail.com"},
 ]
 dependencies = [
-  "torch>=2.0.0"
 ]
 
 [project.urls]

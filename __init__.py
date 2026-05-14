@@ -1,5 +1,4 @@
-import torch
-
+## TODO  Test Numpy it might work!!!!
 ## TODO Scale gradient to fit window
 ## TODO new Github repo ✅
 ## TODO More gradient themes
@@ -7,7 +6,7 @@ import torch
 ## TODO More Examples and a README.md
 ## TODO Create a package for Pypi ✅
 ## TODO Numpy Support
-## TODO Remove all Deps 
+## TODO Remove all Deps  ✅
 ## TODO Native-only Support
 ## TODO Actually use the lib for our origin intent
 ## TODO 
@@ -16,8 +15,15 @@ import torch
 ## TODO 
 ## TODO Scale down if needed to fit in window
 
-def plot(input: Tensor, theme='heatmap', lightness=4) -> None:
-    a = input / input.abs().max()
+def plot(input, theme='heatmap', lightness=4) -> None:
+    kind = type(input).__name__
+    if kind == "ndarray":
+        a = input / input.max()
+    elif kind == 'Tensor':
+        a = input / input.abs().max()
+    else:
+        return "Must be a Numpy ndarray or PyTorch Tensor"
+        
     width, height = a.shape
     top = '▄' * (width+2)
     bottom = '▀' * (width+2)
