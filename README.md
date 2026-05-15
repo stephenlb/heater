@@ -6,7 +6,7 @@ a = torch.rand(40,20)
 heater.plot(a, theme='heatmap')
 ```
 
-![Example Heatmap](images/example1.png)
+![Example Heatmap](https://raw.githubusercontent.com/stephenlb/heater/main/images/example1.png)
 
 
 ```python
@@ -14,7 +14,7 @@ b = torch.linspace(0,1, steps=800).view(40,20)
 heater.plot(b, theme='heatmap')
 ```
 
-![Example Heatmap](images/example2.png)
+![Example Heatmap](https://raw.githubusercontent.com/stephenlb/heater/main/images/example2.png)
 
 
 ### Reference Charcodes for TUI
