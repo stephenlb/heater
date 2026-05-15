@@ -18,12 +18,15 @@ def plot(input, theme='heatmap', lightness=4) -> None:
     kind = type(input).__name__
     if kind == "ndarray":
         a = input / input.max()
+        if a.ndim == 1:
+            a = a.reshape(-1, 1)
     elif kind == 'Tensor':
         a = input / input.abs().max()
-        #a = a.unsqueeze(dim=1)
+        if a.dim() == 1:
+            a = a.unsqueeze(dim=1)
     else:
         return "Must be a Numpy ndarray or PyTorch Tensor"
-        
+
     width, height = a.shape
     top = '▄' * (width+2)
     bottom = '▀' * (width+2)

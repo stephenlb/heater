@@ -1,4 +1,4 @@
-# PyTorch TUI Heatmap Visualizer for 1D Vectors and 2D Matrix Tensors
+# PyTorch & NumPy TUI Heatmap Visualizer for 1D Vectors and 2D Matrix Tensors
 
 
 ```python
