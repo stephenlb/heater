@@ -24,10 +24,18 @@ def plot(input, theme='heatmap', lightness=4) -> None:
         a = input / input.abs().max()
         if a.dim() == 1:
             a = a.unsqueeze(dim=1)
+    elif kind in ('list', 'tuple'):
+        if not input:
+            return
+        rows = input if isinstance(input[0], (list, tuple)) else [[v] for v in input]
+        m = max(abs(float(v)) for row in rows for v in row) or 1.0
+        a = [[float(v) / m for v in row] for row in rows]
     else:
-        return "Must be a Numpy ndarray or PyTorch Tensor"
+        print(f"heater.plot: unsupported type {kind!r}, expected NumPy ndarray, PyTorch Tensor, or Python list/tuple")
+        return
 
-    width, height = a.shape
+    width = len(a)
+    height = len(a[0])
     top = '▄' * (width+2)
     bottom = '▀' * (width+2)
     print(top)
@@ -35,7 +43,7 @@ def plot(input, theme='heatmap', lightness=4) -> None:
         row = []
         row.append('█') # left border
         for w in range(width):
-            value = a[w,h]
+            value = a[w][h]
             row.append(shade(value, theme))
         row.append('█') # rigth border
         print(''.join(row))
@@ -135,7 +143,7 @@ themes = {
 
 def shade(value: float, theme='heatmap', lightness=4) -> str:
     rgb = themes[theme]
-    v = value.item()
+    v = value.item() if hasattr(value, 'item') else float(value)
     p = round(v * (len(rgb) - 1))
     s = rgb[p]
     f = rgb[p]
