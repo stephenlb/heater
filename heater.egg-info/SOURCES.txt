@@ -1,8 +1,0 @@
-LICENSE
-README.md
-heater.py
-pyproject.toml
-heater.egg-info/PKG-INFO
-heater.egg-info/SOURCES.txt
-heater.egg-info/dependency_links.txt
-heater.egg-info/top_level.txt
