@@ -12,13 +12,13 @@ License: Copyright 2026 Stephen Blum
         THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
         
 Project-URL: Homepage, https://github.com/stephenlb/heater
-Requires-Python: >=3.12
+Requires-Python: >=3.9
 Description-Content-Type: text/markdown
 License-File: LICENSE
-Requires-Dist: torch>=2.0.0
 Dynamic: license-file
 
-# PyTorch Heatmap Visualizer for 1D Vectors and 2D Matrix Tensors
+# PyTorch TUI Heatmap Visualizer for 1D Vectors and 2D Matrix Tensors
+
 
 ```python
 a = torch.rand(40,20)
@@ -35,3 +35,70 @@ heater.plot(b, theme='heatmap')
 
 ![Example Heatmap](images/example2.png)
 
+
+### Reference Charcodes for TUI
+
+```python
+##   Code    Result  Description
+##   U+2580  ▀       Upper half block
+##   U+2581  ▁       Lower one eighth block
+##   U+2582  ▂       Lower one quarter block
+##   U+2583  ▃       Lower three eighths block
+##   U+2584  ▄       Lower half block
+##   U+2585  ▅       Lower five eighths block
+##   U+2586  ▆       Lower three quarters block
+##   U+2587  ▇       Lower seven eighths block
+##   U+2588  █       Full block
+##   U+2589  ▉       Left seven eighths block
+##   U+258A  ▊       Left three quarters block
+##   U+258B  ▋       Left five eighths block
+##   U+258C  ▌       Left half block
+##   U+258D  ▍       Left three eighths block
+##   U+258E  ▎       Left one quarter block
+##   U+258F  ▏       Left one eighth block
+##   U+2590  ▐       Right half block
+##   U+2591  ░       Light shade
+##   U+2592  ▒       Medium shade
+##   U+2593  ▓       Dark shade
+#  
+#  a = torch.rand(10,10)
+#  heater.plot(a) __init__.py
+# ▄▄▄▄▄▄▄▄▄▄▄▄
+# █    ░▓▒▓█▒█
+# █   ░▒▓█▒░ █
+# █  ░▒▓█▒░  █
+# █ ░▒▓█▒░   █
+# ▀▀▀▀▀▀▀▀▀▀▀▀ ▒
+# ▀▀▀▀▀▀▀▀▀▒▒▒▒▒▒
+# ╭━━━━━━━━━━━━━━━━━━╮
+# ┃░▒  ▓  ▇  ▒       ┃
+# ┃ ▒  ▓             ┃
+# ┃ ▒                ┃
+# ┃ ▒  ▄             ┃
+# ┃ ▒  ▅             ┃
+# ┃ ▒  ▆             ┃
+# ╰━━━━━━━━━━━━━━━━━━╯
+# ┌ ┐ └ ┘ ├ ┤ ┬ ┴ ┼ ─ │
+# ╔ ╗ ╚ ╝ ╠ ╣ ╦ ╩ ╬ ═ ║
+# ╭ ╮ ╯ ╰╯
+# ┏ ┓ ┗ ┛ ┣ ┫ ┳ ┻ ╋ ━ ┃
+# ▖
+
+# ▗
+# ▘
+# ▙
+
+# ▚
+
+# ▛▀▀▀▀▀▀▀▀▄▄▄▄▜
+# ▙▄▟
+
+# ▜
+
+# ▝
+# ▞
+
+# ▟
+#  
+# ▚
+```

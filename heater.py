@@ -1,16 +1,15 @@
 ## TODO  Test Numpy it might work!!!!
 ## TODO Scale gradient to fit window
 ## TODO new Github repo ✅
-## TODO More gradient themes
+## TODO Numpy Support ✅
+## TODO Remove all Deps ✅
+## TODO cleanup of __init__.py ✅
 ## TODO Examples and a README.md ✅
-## TODO More Examples and a README.md
 ## TODO Create a package for Pypi ✅
-## TODO Numpy Support
-## TODO Remove all Deps  ✅
-## TODO Native-only Support
+## TODO More gradient themes
+## TODO More Examples and a README.md
 ## TODO Actually use the lib for our origin intent
 ## TODO 
-## TODO cleanup of __init__.py ✅
 ## TODO More Themes and Gradients
 ## TODO 
 ## TODO Scale down if needed to fit in window
@@ -21,6 +20,7 @@ def plot(input, theme='heatmap', lightness=4) -> None:
         a = input / input.max()
     elif kind == 'Tensor':
         a = input / input.abs().max()
+        #a = a.unsqueeze(dim=1)
     else:
         return "Must be a Numpy ndarray or PyTorch Tensor"
         
